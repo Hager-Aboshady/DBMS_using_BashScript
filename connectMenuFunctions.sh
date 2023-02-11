@@ -1,7 +1,8 @@
 #!/bin/bash
 SCRIPT_DIR=$( cd -- "$( dirname -- "$BASH_SOURCE" )" ; pwd;)
 
-source $SCRIPT_DIR/helpers.sh
+source $SCRIPT_DIR/helpers.sh                         #this file contains the functions of the 2nd menu only 
+                                                       #the function body may contain a script or the code to execute directly
 
 function createTable
 {
@@ -55,8 +56,9 @@ function createTable
  fi
  
 }
-
-function checkcolName
+                         
+function checkcolName   
+ #regarding this functio that you use in create table fun above  => put it in helpers or in a helpers2 Script,,, Not here 3shan htl5bt w nhafez 3la  L nezzam plz
 {
      read -p "Enter $1 Column Name " colName
         isValid $1
@@ -87,5 +89,45 @@ function checkcolName
                fi 
 }
 
+function listTable
+{
+
+ 
+}
+
+function dropTable
+{
+
+ 
+}
+
+
+function insertIntoTable
+{
+source $SCRIPT_DIR/insertScript.sh
+insertFun
+flag=$? 
+if [ $flag -eq 0 ]
+then
+  #back to menu  
+fi 
+}
+
+function selectFromTable
+{
+ 
+}
+
+function deleteFromTable
+{
+
+ 
+}
+
+function updateTable
+{
+
+ 
+}
 
 

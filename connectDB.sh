@@ -7,12 +7,13 @@ function connectMenu{
  cd $1
  select option in "Create Table" "List Tables" "Drop Table" "Insert Into Table" "Select From Table" "Delete From Table" "Update Table" "Exit"
 do 
-  case $option in 
- "Create Table") echo create ;;
-  
+  case $option in              
+ "Create Table") echo create ;;          #Every option calls its function , which is in connectMenuFunctions.sh
+                                         # we need to source connectMenuFunctions.sh 
+                                         # instead of echo ==> call the function which is in the connectMenuFunctions.sh  script 
  "List Tables") echo list ;;
   
- "Drop Table") echo drop  ;;
+ "Drop Table") echo drop  ;;               
   
  "Insert Into Table") echo insert  ;;
  

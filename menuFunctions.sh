@@ -30,6 +30,7 @@ function listDB
 {
 
 ls -d */
+#ls -F | grep /
 
 }
 
@@ -77,6 +78,8 @@ function connectToDB
      fi
        
  fi
+ 
+ #after cd we need to source the connectDB.sh script ==> to show the 2nd menu which is in connectDB.sh
 
 
 }
