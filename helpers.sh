@@ -2,7 +2,6 @@
 export LC_COLLATE=C
 shopt -s extglob
 
-#
 function isValid
 {
 res=0
@@ -11,7 +10,7 @@ then
   rgx="^([A-Za-z_])+([A-Za-z0-9_])$"
   if [[ $1 =~ $rgx ]]
     then 
-      res=1
+      res=1                 #valid => 1 notValid => 0
   fi 
 fi
 return $res

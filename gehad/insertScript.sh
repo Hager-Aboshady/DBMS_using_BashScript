@@ -19,7 +19,7 @@ if [ $validResult -eq 1 ]
      
       if [ $existResult -ne 0 ]
         then                              
-           metaFile=`echo $tbName"_meta"`
+           metaFile=${tbName}Meta
            
            numOfCols=`cut -d ":"  -f 1 $metaFile`                    #1st field always contains the number of cols
            loopCols=$(($numOfCols+$numOfCols))                       #as we have cols for data and cols for meta data         
@@ -98,7 +98,7 @@ if [ $validResult -eq 1 ]
 
     else echo "This is Table is Not Exist "    
     fi 
-else echo "Please Enter A valid Table Name "         
+else echo "Please Enter A valid table Name "         
 fi   
 
 

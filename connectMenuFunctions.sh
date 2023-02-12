@@ -97,7 +97,13 @@ function listTable
 
 function dropTable
 {
-
+source $SCRIPT_DIR/dropTableScript.sh
+dropTableFun
+flag=$? 
+if [ $flag -eq 0 ]
+then
+  #back to menu  
+fi 
  
 }
 
