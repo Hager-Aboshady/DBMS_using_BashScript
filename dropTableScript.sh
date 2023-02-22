@@ -33,4 +33,5 @@ fi
 
 return $flag
 }
-
+dropTableFun
+echo $?

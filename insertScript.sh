@@ -22,6 +22,8 @@ if [ $validResult -eq 1 ]
            metaFile=`echo $tbName"_meta"`
            
            numOfCols=`cut -d ":"  -f 1 $metaFile`                    #1st field always contains the number of cols
+
+
            loopCols=$(($numOfCols+$numOfCols))                       #as we have cols for data and cols for meta data         
          
            id=""                                                      
@@ -35,8 +37,8 @@ if [ $validResult -eq 1 ]
                 if [ $idRes -eq 1 ]
                   then
                  
-                     res=`cut -d ":" -f 1 $tbName | grep $id |  awk 'END { print NR }' `
-                
+                     res=`cut -d ":" -f 1 $tbName | grep -w $id | awk 'END { print NR }' `
+
                  fi 
              
             done          
@@ -59,12 +61,18 @@ if [ $validResult -eq 1 ]
                       
                     if [ $validValue -eq 1 ]
                        then                                                         
-
+                                  if [ $i -eq $loopCols ]
+                                    then 
+                                        row=`echo $row$insertedValue`
+                                  else 
+                                       row=`echo $row$insertedValue:`
+                                  fi
+                                         
                                    j=$((i+1))                                                                 
                                    i=$((i+2))
                                    j=$((i+1))
-                                                                
-                                   row=`echo $row$insertedValue:`
+                                                        
+                                  # row=`echo $row$insertedValue:`
   
                       
                     fi
@@ -78,11 +86,19 @@ if [ $validResult -eq 1 ]
                        
                      if [ $numValue -eq 1 ]
                         then
+                        
+                                  if [ $i -eq $loopCols ]
+                                   then 
+                                       row=`echo $row$insertedValue`
+                                  else 
+                                       row=`echo $row$insertedValue:`
+                                  fi
                                   j=$((i+1))
                                   i=$((i+2)) 
-                                  j=$((i+1))   
-                             
-                                 row=`echo $row$insertedValue:`
+                                  j=$((i+1))  
+                                  
+                               
+                                 #row=`echo $row$insertedValue:`
                         
                     fi
               

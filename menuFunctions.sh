@@ -2,11 +2,11 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "$BASH_SOURCE" )" ; pwd;)
 
 source $SCRIPT_DIR/helpers.sh
+source $SCRIPT_DIR/connectDB.sh
 
 function createDB
 {
  read -p "Please Enter The name of the database " dbName
- 
  
  isValid $dbName
  valid=$?
@@ -18,7 +18,7 @@ function createDB
      if [ $exist -eq 0 ]
      then mkdir $dbName
           echo "$dbName Database has been created successfully"
- 
+          
      else echo "$dbName Database is already exist !"
      fi
        
@@ -29,8 +29,12 @@ function createDB
 function listDB
 {
 
-ls -d */
-#ls -F | grep /
+ls -F | grep / | sed 's/.$//'
+count=$(ls -F | grep / | sed 's/.$//'| wc -l)
+if [ $count = "0" ]
+then 
+ echo Thee is no databases yet 
+fi
 
 }
 
@@ -72,14 +76,13 @@ function connectToDB
      exist=$?
      
      if [ $exist -eq 1 ]
-     then cd $dbName
-     echo "$dbName Database has been connected successfully"
+     then 
+     connectMenu $dbName
+     cd ..
      else echo "$dbName Database is not exist !"
      fi
        
  fi
- 
- #after cd we need to source the connectDB.sh script ==> to show the 2nd menu which is in connectDB.sh
 
 
 }
