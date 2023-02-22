@@ -10,10 +10,10 @@
 #### - Connect To Databases
 #### - Drop Database
 
-### if the user selects  to "Create Database", the application do the following :
-#### check if there is a directory called "Databases" in the current directory or not
-#####         if true => switch to this directory  
-#####         if false => create a "Databases" directory , then switch to it 
+### If the user selects "Create Database", the application does the following :
+#### checks if there is a directory called "Databases" in the current directory or not
+#####                   if true => Go to this directory  
+#####                   if false => create a "Databases" directory , then Go to this directory  
 ### -----------------------------------------------------------------------------------------
                  
 ### Upon user Connect to Specific Database, there is a new Screen with this Menu:
